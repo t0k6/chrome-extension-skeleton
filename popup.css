@@ -1,0 +1,47 @@
+/* popup.cssの基本的なスタイル設定例 */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #eee;
+    min-width: 300px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+#buttonContainer {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #09f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 2px 2px #666;
+}
+
+button:hover {
+    background-color: #36c;
+}
+
+button:active {
+    box-shadow: 0px 0px #666;
+    transform: translateX(2px);
+    transform: translateY(2px);
+}
+
+/* ステータスメッセージ用のスタイル */
+.status-message {
+    margin-top: 15px;
+    color: green;
+    font-style: italic;
+}
