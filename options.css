@@ -1,0 +1,62 @@
+/* options.css */
+
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    min-width: 240px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Header styles */
+h1 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form and container styling */
+#options-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+#options-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#options-form label {
+    font-weight: bold;
+}
+
+#options-form input[type="color"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Button styling */
+button {
+    background-color: #36c;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 3px 3px #999;
+}
+
+button:active {
+    background-color: #05a;
+    box-shadow: 2px 2px #666;
+    transform: translate(1px, 1px);
+}
