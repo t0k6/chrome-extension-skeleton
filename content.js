@@ -17,6 +17,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // コンテンツスクリプトによって実行されたアクションを示す例示関数
 function performAction() {
     console.log("Context menu action performed by content script.");
+    alert("Context menu action performed by content script.");
     // You can manipulate the DOM of the current page here. For example:
     // ここで現在のページのDOMを操作できます。例えば：
     // document.body.style.backgroundColor = "yellow";

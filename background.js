@@ -56,7 +56,7 @@ function useBackgroundWorker() {
 
   // Remember to terminate the worker when it's no longer needed
   // ワーカーが不要になったら終了させることを忘れないでください
-  // worker.terminate();
+  worker.terminate();
 }
 
 // Uncomment the following line to use the background worker function.

@@ -7,8 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     triggerActionButton.addEventListener('click', function() {
         // Example of sending a message to the background script
         // バックグラウンドスクリプトにメッセージを送信する例
-        chrome.runtime.sendMessage({action: "triggerAction"}, function(response) {
-            console.log("Action triggered", response);
+        // chrome.runtime.sendMessage({action: "triggerAction"}, (response) => {
+        //     console.log("Action triggered", response);
+        // });
+
+        // Example of calling a function that runs in a background worker
+        // バックグラウンドワーカーで実行される関数を呼び出す例
+        chrome.runtime.sendMessage({action: "callBackgroundFunction"}, (response) => {
+            console.log("Background function response", response);
+            alert("Background function response: " + response.result);
         });
     });
 
@@ -26,21 +33,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Example of adding a right-click context menu action
-    // Note: This is just a placeholder. Actual context menu creation should be done in background.js or contextMenu.js
-    // 右クリックのコンテキストメニューアクションを追加する例
-    // 注意: これは単なるプレースホルダーです。実際のコンテキストメニューの作成はbackground.jsまたはcontextMenu.jsで行うべきです
-    // chrome.contextMenus.create({
-    //     title: "コンテキストメニュー例", // "Example Context Menu",
-    //     contexts:["selection"],  // ContextType
-    //     onclick: function() { console.log("コンテキストメニュー項目がクリックされました"); // "Context menu item clicked" }
-    // });
-
-    // Example of calling a function that runs in a background worker
-    // Note: This is just a placeholder. Actual implementation depends on your background worker setup
-    // バックグラウンドワーカーで実行される関数を呼び出す例
-    // 注意: これは単なるプレースホルダーです。実際の実装はバックグラウンドワーカーの設定に依存します
-    // chrome.runtime.sendMessage({action: "callBackgroundWorker"}, function(response) {
-    //     console.log("バックグラウンドワーカーからの応答", response); // "Background worker response", response
-    // });
 });
