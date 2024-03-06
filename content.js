@@ -10,6 +10,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // Perform the action triggered by the context menu
         // コンテキストメニューによってトリガーされたアクションを実行します
         performAction();
+        sendResponse({result: "action performed"});
+    }
+    if (message.action === "callCurrentActiveTabFunction") {
+        // Perform the action triggered by the context menu
+        // コンテキストメニューによってトリガーされたアクションを実行します
+        performAction();
+        sendResponse({result: "action performed"});
     }
 });
 
@@ -26,7 +33,7 @@ function performAction() {
 // This function could be used to send messages to the background script if needed
 // 必要に応じて、この関数を使用してバックグラウンドスクリプトにメッセージを送信できます
 function sendMessageToBackground() {
-    chrome.runtime.sendMessage({action: "messageFromContentScript"}, function(response) {
+    chrome.runtime.sendMessage({action: "callBackgroundFunction"}, (response) => {
         console.log("Received response from background:", response);
     });
 }

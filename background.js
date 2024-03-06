@@ -48,7 +48,7 @@ function useBackgroundWorker() {
   const worker = new Worker('worker.js');
   worker.postMessage('Start working');
 
-  worker.onmessage = function(event) {
+  worker.onmessage = (event) => {
     console.log('Received message from worker:', event.data);
     // Handle messages received from the worker here
     // ここでワーカーから受け取ったメッセージを処理します。

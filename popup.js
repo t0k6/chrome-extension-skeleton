@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var triggerActionButton = document.getElementById('triggerAction');
-    var openOptionsButton = document.getElementById('openOptions');
 
     // Event listener for the trigger action button
     // トリガーアクションボタンのイベントリスナー
-    triggerActionButton.addEventListener('click', function() {
+    document.getElementById('triggerAction1').addEventListener('click', () => {
         // Example of sending a message to the background script
         // バックグラウンドスクリプトにメッセージを送信する例
         // chrome.runtime.sendMessage({action: "triggerAction"}, (response) => {
@@ -14,14 +12,37 @@ document.addEventListener('DOMContentLoaded', function() {
         // Example of calling a function that runs in a background worker
         // バックグラウンドワーカーで実行される関数を呼び出す例
         chrome.runtime.sendMessage({action: "callBackgroundFunction"}, (response) => {
-            console.log("Background function response", response);
-            alert("Background function response: " + response.result);
+            if (chrome.runtime.lastError) {
+                console.log("Error: ", chrome.runtime.lastError);
+            } else {
+                console.log("Background function response", response);
+            }
         });
     });
 
+    document.getElementById('triggerAction2').addEventListener('click', () => {
+        // 現在のアクティブなタブに対してメッセージを送る例
+        sendMessageToCurrentActiveTab({ action: "callCurrentActiveTabFunction" }, (response) => {
+            if (chrome.tabs.lastError) {
+                console.log("Error: ", chrome.tabs.lastError);
+            } else {
+                console.log("Tab function response", response);
+            }
+        });
+    });
+
+    var sendMessageToCurrentActiveTab = (message, func) => {
+        // 現在のアクティブなタブに対してメッセージを送る
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, message, (response) => {
+                func(response);
+            });
+        });
+    }
+
     // Event listener for the open options button
     // オプションボタンを開くためのイベントリスナー
-    openOptionsButton.addEventListener('click', function() {
+    document.getElementById('openOptions').addEventListener('click', () => {
         if (chrome.runtime.openOptionsPage) {
             // New way to open options pages, if supported (Chrome 42+).
             // オプションページを開く新しい方法、サポートされている場合 (Chrome 42+)
