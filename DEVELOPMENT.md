@@ -50,3 +50,22 @@
 ## background.js
 
 `background.js`は、拡張機能のバックグラウンドプロセスを定義するJavaScriptファイルです。ここで、イベントリスナーや拡張機能のコアロジックを実装します。
+
+# [Extensions | Chrome for Developers](https://developer.chrome.com/docs/extensions)
+
+## ファイル構成例
+```
+├ manifest.json
+├ background.js
+├ scripts/
+│ └─ content.js
+├ popup/
+│ └─ popup.html
+│ └─ popup.js
+│ └─ popup.css
+└ images/
+  └─ icon-16.png
+  └─ icon-32.png
+  └─ icon-48.png
+  └─ icon-128.png
+```
